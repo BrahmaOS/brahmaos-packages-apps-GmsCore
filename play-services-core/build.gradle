@@ -46,7 +46,7 @@ def execResult(...args) {
     return stdout.toString().trim()
 }
 
-def gmsVersion = "13.2.80"
+/*def gmsVersion = "13.2.80"
 def gmsVersionCode = Integer.parseInt(gmsVersion.replaceAll('\\.', ''))
 def gitVersionBase = execResult('git', 'describe', '--tags', '--abbrev=0').substring(1)
 def gitCommitCount = Integer.parseInt(execResult('git', 'rev-list', '--count', "v$gitVersionBase..HEAD"))
@@ -57,14 +57,15 @@ def ourVersionMinor = Integer.parseInt(ourVersionBase.substring(ourVersionBase.l
 def ourVersionCode = gmsVersionCode * 1000 + ourVersionMinor * 2  + (gitCommitCount > 0 || gitDirty ? 1 : 0)
 def ourVersionName = "$ourVersionBase.$gmsVersionCode" + (gitCommitCount > 0 && !gitDirty ? "-$gitCommitCount" : "") + (gitDirty ? "-dirty" : "") + (gitCommitCount > 0 && !gitDirty ? " ($gitCommitId)" : "")
 logger.lifecycle('Starting build for version {} ({})...', ourVersionName, ourVersionCode)
+*/
 
 android {
     compileSdkVersion androidCompileSdk()
     buildToolsVersion "$androidBuildVersionTools"
 
     defaultConfig {
-        versionName ourVersionName
-        versionCode ourVersionCode
+        versionName 'v0.2.6.13280'
+        versionCode 26013280
 
         minSdkVersion androidMinSdk()
         targetSdkVersion androidTargetSdk()
